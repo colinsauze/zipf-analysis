@@ -13,7 +13,7 @@ To reproduce the figures in this publicaiton, do the following steps:
 
 2. use `countwords.py` to count the words in `frankenstein.txt`
 
-   python bin/countwords.py > results/frankenstein.csv
+   python bin/countwords.py data/frankenstein.txt --num 100 > results/frankenstein.csv 
 
 3. use `plotcounts.py` to plot the resulting file/
 
@@ -21,7 +21,7 @@ To reproduce the figures in this publicaiton, do the following steps:
 
 4. save the plot as `results/frakenstein.pdf`
 
-5. edit `bin/countwords.py` and `bin/plotcounts.py` to replace `frankenstein` with `dracula`.
+5. repeat the `bin/plotcounts.py` but replace `frankenstein` with `dracula`.
 
 6. repeat the above to generate `dracula.csv` and plot `dracula.pdf`
 
