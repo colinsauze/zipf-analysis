@@ -1,0 +1,6 @@
+*.npy
+id_rsa
+id_rsa.pub
+__pycache__
+.ipynb_checkpoints
+
