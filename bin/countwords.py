@@ -18,21 +18,27 @@ def count_words(reader):
     word_counts = Counter(word_list)
     return word_counts
 
-parser = argparse.ArgumentParser(description=(
-    "Count the occurences of all words in a text "
-    "and write them to a CSV-file."
-))
+def main(args):
+    """Run the command line program."""
+    word_counts = count_words(args.infile)
+    util.collection_to_csv(word_counts, num=args.num)
 
-parser.add_argument('infile', type=argparse.FileType('r'),
-                    nargs='?', default='-',
-                    help='Input file name')
+if __name__ == '__main__':
 
-parser.add_argument('-n','--num',
-                    type=int, default=None,
-                    help='Output only n most frequent words')
+    parser = argparse.ArgumentParser(description=(
+       "Count the occurences of all words in a text "
+       "and write them to a CSV-file."
+    ))
 
-args = parser.parse_args()
+    parser.add_argument('infile', type=argparse.FileType('r'),
+                         nargs='?', default='-',
+                         help='Input file name')
 
-word_counts = count_words(args.infile)
-util.collection_to_csv(word_counts, num=args.num)
+    parser.add_argument('-n','--num',
+                        type=int, default=None,
+                        help='Output only n most frequent words')
+
+    args = parser.parse_args()
+
+    main(args)
 
